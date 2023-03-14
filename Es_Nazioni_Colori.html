@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu con Nazioni</title>
+	<script>
+		function mostraColori() {
+			// Valore selezionato nel menu
+			var nazione = document.getElementById("menu").value;
+
+			// Oggetto dove setto un array di colori
+			var colori = {
+				Italia: ["#009246", "#F0ECE1", "#CE2B37"],
+				Spagna: ["#C60B1E", "#F1BF00"],
+				Germania: ["#000000", "#FFCE00", "#DD0000"],
+				Francia: ["#0055A4", "#F0ECE1", "#EF4135"],
+				Inghilterra: ["#F0ECE1", "#00008B", "#F2001C"],
+				Portogallo: ["#007A2E", "#FFCE00", "#E31B23"],
+			};
+
+			// Imposto il div per la stampa di colori
+			var coloriDiv = document.getElementById("colori");
+
+			// Pulisco il div
+			coloriDiv.innerHTML = "";
+
+			// Titolo della nazione selezionata nel menu
+			var titolo = document.createElement("h2");
+			titolo.innerHTML = nazione;
+			coloriDiv.appendChild(titolo);
+
+			// Aggiungo una casella per ogni colore della bandiera
+			for (var i = 0; i < colori[nazione].length; i++) {
+				var coloreDiv = document.createElement("div");
+				coloreDiv.style.backgroundColor = colori[nazione][i];
+				coloreDiv.style.width = "50px";
+				coloreDiv.style.height = "50px";
+				coloreDiv.style.float = "left";
+				coloreDiv.style.marginRight = "10px";
+				coloriDiv.appendChild(coloreDiv);
+			}
+		}
+	</script>
+</head>
+<style>
+
+#intro{
+	color: red;
+	text-align: center;
+	font-size: 45px;
+	border-bottom: solid 2px black;
+	
+}
+</style>
+<body>
+
+<h1 id = "intro">Menu Delle Nazioni</h1>
+	<select id="menu" onchange="mostraColori()">
+		<option value="">Seleziona La Nazione</option>
+		<option value="Italia">Italia</option>
+		<option value="Spagna">Spagna</option>
+		<option value="Germania">Germania</option>
+		<option value="Francia">Francia</option>
+		<option value="Inghilterra">Inghilterra</option>
+		<option value="Portogallo">Portogallo</option>
+	</select>
+
+	<div id="colori"></div>
+</body>
+</html>
